@@ -8,12 +8,21 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    
+    @article = Article.new
   end
 
   def create
-    @article = Article.new(params.require(:article).permit(:title, :description))
-    @article.save
-    redirect_to article_path(@article)
+    @article = Article.new(article_params)
+
+    if @article.save
+      flash[:notice] = "Artículo creado correctamente"
+      redirect_to @article
+    else
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :description)
   end
 end
