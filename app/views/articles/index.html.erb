@@ -1,0 +1,22 @@
+<h1>Listado de Artículos</h1>
+
+<%# Itera sobre la variable @articles que definimos en el controlador %>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.description %></td>
+        <td><%= link_to 'Mostrar', article %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
