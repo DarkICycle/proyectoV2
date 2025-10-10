@@ -15,7 +15,9 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td><%= link_to 'Mostrar', article %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= link_to 'Edit', article %></td>
+        <td><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro de borrar este artículo?" } %></td>
       </tr>
     <% end %>
   </tbody>
