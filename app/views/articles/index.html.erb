@@ -15,10 +15,17 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', article %></td>
-        <td><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro de borrar este artículo?" } %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<p>
+<%= link_to 'Create new Article', new_article_path %>
+</p>
+
+<%= link_to 'Home Page', root_path %>
+<%= link_to 'About page', about_path %>
