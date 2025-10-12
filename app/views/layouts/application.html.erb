@@ -5,9 +5,7 @@
     <title>AlphaBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -17,20 +15,13 @@
 </head>
 
 <%# 🚨 Aplicamos Flexbox para el sticky footer 🚨 %>
-
 <body>
-
     <%= render 'layouts/navigation' %>
-
     <%= render 'layouts/messages' %>
-
     <%# 🚨 El contenedor principal crece para empujar el footer 🚨 %>
     <div class="container my-4 flex-grow-1 bg-transparent">
         <%= yield %>
     </div>
-
-
-
     <%# Scripts al final del body %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
