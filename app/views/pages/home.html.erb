@@ -1,3 +1,29 @@
-<h1>Welcome to the Homepage</h1>
-<%= link_to 'Articles Listing', articles_path %>
-<%= link_to 'About page', about_path %>
+<%# app/views/pages/home.html.erb %>
+
+<%# --- JUMBOTRON (SIN ALTERACIONES) --- %>
+<div class="p-5 mb-4 bg-dark rounded-3 jumbotron-alto text-white">
+    <div class="container-fluid py-5 text-center">
+
+        <h1 class="display-5 fw-bold ">Bienvenido a ALPHA-BLOG</h1>
+
+        <p class="col-md-8 mx-auto fs-4 ">
+            Este es el lugar donde compartir tus pensamientos y noticias.
+        </p>
+
+        <%= link_to "¡Registrarse!", articles_path, class: "btn btn-success btn-lg mt-3" %>
+
+    </div>
+</div>
+
+<%# --- PIE DE PÁGINA (FOOTER) --- %>
+<%# 🚨 Aplicamos la nueva clase de posicionamiento fijo 🚨 %>
+<footer class="footer py-3 bg-dark footer-fijo">
+    <div class="container text-center">
+        <span class="text-white">
+            &copy; <%= Date.current.year %> ALPHA-BLOG | Creado por Samuel
+            <p class="mt-1">
+                <%= link_to "Acerca de Nosotros", about_path, class: "text-white" %>
+            </p>
+        </span>
+    </div>
+</footer>

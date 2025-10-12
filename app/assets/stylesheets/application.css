@@ -8,3 +8,54 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .navbar {
+  background-color: black !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container{
+    margin-top: 25px;
+}
+
+.jumbotron-alto {
+  height: 425px; 
+}
+
+body{
+    background-color: lightgray;
+    padding-bottom: 60px;
+}
+
+.footer {
+    background-color: lightgray !important;
+}
+
+.footer *{
+    color: white !important;
+}
+
+.footer a {
+  color: white !important;
+}
+
+.footer-fijo {
+  position: fixed; /* Lo saca del flujo normal del documento */
+  bottom: 0;       /* Lo pega al borde inferior */
+  left: 0;         /* Lo pega al borde izquierdo */
+  width: 100%;     /* Le da el ancho completo de la ventana */
+  z-index: 1030;   /* Lo mantiene por encima de la mayoría de otros elementos */
+}
+
