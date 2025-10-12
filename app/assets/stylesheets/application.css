@@ -30,8 +30,17 @@
 }
 
 body {
-    background-color: lightgray; /* Gris claro suave */
-    padding-bottom: 60px; /* Espacio para el footer fijo */
+    /* Elimina el margen por defecto que podría estar causando la franja */
+    margin: 0; 
+    
+    /* Asegura que el body use el 100% del ancho del html */
+    width: 100%; 
+    
+    /* Mantenemos tu padding-bottom para el footer fijo */
+    padding-bottom: 60px;
+    
+    /* Aseguramos que el body sea transparente para que se vea el fondo gris del html */
+    background-color: transparent; 
 }
 
 .container {
@@ -91,6 +100,9 @@ body {
   z-index: 1030;
 }
 
-
+html,
+#page-content{
+    background-color: lightgray;
+}
 
 
