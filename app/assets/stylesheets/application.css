@@ -1,16 +1,12 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+ * Este es tu archivo de estilos principal (application.css/scss)
  */
 
- .navbar {
-  background-color: black !important;
+/* --- Estilos de Navegación --- */
+
+.navbar {
+  /* Usar el color oscuro de Bootstrap para el Navbar */
+  background-color: #212529 !important; 
 }
 
 .nav-link{
@@ -18,7 +14,8 @@
 }
 
 #logo {
-  float: left;
+  /* Nota: float: left es útil, pero Bootstrap prefiere flex/grid */
+  float: left; 
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
@@ -26,36 +23,74 @@
   font-weight: bold;
 }
 
+/* --- Estilos de Layout y Fondo Global --- */
+
 #home-container{
     margin-top: 25px;
 }
 
+body {
+    background-color: lightgray; /* Gris claro suave */
+    padding-bottom: 60px; /* Espacio para el footer fijo */
+}
+
+.container {
+  /* Asegura que el contenedor principal sea transparente */
+  background-color: transparent !important;
+}
+
+/* 🚨 CAMBIO CLAVE: Define el color de fondo aquí 🚨 */
+.card {
+  /* Fondo BLANCO o el color que quieras para toda la tarjeta */
+  background-color: white !important; 
+  border: 1px solid #c8c8c8; 
+}
+
+/* Hacemos transparente el card-body para que herede el color de .card */
+.card-body{
+  background-color: transparent !important;
+}
+
+/* 🚨 CORRECCIÓN: Usar el color deseado para encabezado/pie de página 🚨 */
+.card-header, .card-footer {
+    /* Si quieres que sea blanco, usa white. Si quieres wheat, úsalo aquí. */
+    background-color: rgb(218, 218, 218) !important;
+}
+
+/* --- Estilos de Jumbotron --- */
 .jumbotron-alto {
   height: 425px; 
 }
 
-body{
-    background-color: lightgray;
-    padding-bottom: 60px;
-}
+
+/* --- Estilos de Footer Fijo (Sticky Footer) --- */
 
 .footer {
-    background-color: lightgray !important;
+    /* Fondo oscuro para contraste */
+    background-color: #343a40 !important; 
 }
 
-.footer *{
+/* Aplicamos color blanco a todo el texto dentro del footer y enlaces */
+.footer * {
     color: white !important;
 }
 
+/* Esto incluye los enlaces (<a>) dentro del footer */
 .footer a {
-  color: white !important;
+  color: white !important; 
+  text-decoration: none; /* Opcional: Quitar subrayado al enlace */
 }
 
+
+/* 🚨 POSICIONAMIENTO FIJO 🚨 */
 .footer-fijo {
-  position: fixed; /* Lo saca del flujo normal del documento */
-  bottom: 0;       /* Lo pega al borde inferior */
-  left: 0;         /* Lo pega al borde izquierdo */
-  width: 100%;     /* Le da el ancho completo de la ventana */
-  z-index: 1030;   /* Lo mantiene por encima de la mayoría de otros elementos */
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
 }
+
+
+
 
