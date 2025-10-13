@@ -13,13 +13,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item">
-                        <%= link_to "Artículos", articles_path, class: "nav-link" %>
+                    <%# 🚨 CAMBIO CLAVE: ELEMENTO DROPDOWN 🚨 %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Artículos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%# Sub-enlace 1: Listado de Artículos %>
+                            <li><%= link_to "Listado de Artículos", articles_path, class: "dropdown-item" %></li>
+                            
+                            <%# Separador (Opcional) %>
+                            <li><hr class="dropdown-divider"></li>
+                            
+                            <%# Sub-enlace 2: Crear Artículo %>
+                            <li><%= link_to "Crear Artículo", new_article_path, class: "dropdown-item" %></li>
+                        </ul>
                     </li>
-
-                    <li class="nav-item">
-                        <%= link_to "Crear Artículo", new_article_path, class: "nav-link" %>
-                    </li>
+                    
+                    <%# 🚨 ELIMINADO: Se quitó el antiguo enlace "Crear Artículo" 🚨 %>
 
                     <li class="nav-item">
                         <%= link_to "Acerca de", about_path, class: "nav-link" %>
