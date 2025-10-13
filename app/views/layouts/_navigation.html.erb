@@ -1,49 +1,53 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+    <div class="container-fluid">
 
-            <%# Marca/Logo (Enlace a la raíz) %>
-            <%= link_to "ALPHA-BLOG", root_path, class: "navbar-brand", id: "logo"  %>
+        <%# Marca/Logo (Enlace a la raíz) %>
+        <%= link_to "ALPHA-BLOG", root_path, class: "navbar-brand", id: "logo"  %>
 
-            <%# Botón de Toggler para móviles %>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <%# Botón de Toggler para móviles %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <%# Contenedor de Enlaces %>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <%# Contenedor de Enlaces %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <%= link_to "Bloggers", users_path, class: "nav-link" %>
+                </li>
+                <%# 🚨 CAMBIO CLAVE: ELEMENTO DROPDOWN 🚨 %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Artículos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%# Sub-enlace 1: Listado de Artículos %>
+                        <li><%= link_to "Listado de Artículos", articles_path, class: "dropdown-item" %></li>
 
-                    <%# 🚨 CAMBIO CLAVE: ELEMENTO DROPDOWN 🚨 %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Artículos
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <%# Sub-enlace 1: Listado de Artículos %>
-                            <li><%= link_to "Listado de Artículos", articles_path, class: "dropdown-item" %></li>
-                            
-                            <%# Separador (Opcional) %>
-                            <li><hr class="dropdown-divider"></li>
-                            
-                            <%# Sub-enlace 2: Crear Artículo %>
-                            <li><%= link_to "Crear Artículo", new_article_path, class: "dropdown-item" %></li>
-                        </ul>
-                    </li>
-                    
-                    <%# 🚨 ELIMINADO: Se quitó el antiguo enlace "Crear Artículo" 🚨 %>
+                        <%# Separador (Opcional) %>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-                    <li class="nav-item">
-                        <%= link_to "Acerca de", about_path, class: "nav-link" %>
-                    </li>
+                        <%# Sub-enlace 2: Crear Artículo %>
+                        <li><%= link_to "Crear Artículo", new_article_path, class: "dropdown-item" %></li>
+                    </ul>
+                </li>
 
-                </ul>
+                <%# 🚨 ELIMINADO: Se quitó el antiguo enlace "Crear Artículo" 🚨 %>
 
-                <%# Formulario de búsqueda %>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+                <li class="nav-item">
+                    <%= link_to "Acerca de", about_path, class: "nav-link" %>
+                </li>
 
-            </div>
+            </ul>
+
+            <%# Formulario de búsqueda %>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+
         </div>
-    </nav>
+    </div>
+</nav>
