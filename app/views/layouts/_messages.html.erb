@@ -1,11 +1,12 @@
-
 <div class="container">
-  <% flash.each do |name, msg| %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
-      <%= msg %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <% flash.each do |name, msg| %>
+    <%# 🚨 CORRECCIÓN: Usar una variable para la clase de Bootstrap 🚨 %>
+    <% class_name = name == "notice" ? "success" : "danger" %>
+
+    <div class="alert alert-<%= class_name %> alert-dismissible fade show" role="alert">
+        <%= msg %>
+
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-  <% end %> 
+    <% end %>
+</div>
