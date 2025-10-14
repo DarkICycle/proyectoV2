@@ -15,7 +15,7 @@
                 <li class="nav-item">
                     <%= link_to "Bloggers", users_path, class: "nav-link" %>
                 </li>
-                <%# 🚨 CAMBIO CLAVE: ELEMENTO DROPDOWN 🚨 %>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Artículos
@@ -29,35 +29,54 @@
                             <hr class="dropdown-divider">
                         </li>
 
-                        <%# Sub-enlace 2: Crear Artículo %>
+                        <% if logged_in %>
                         <li><%= link_to "Crear Artículo", new_article_path, class: "dropdown-item" %></li>
+                        <% end %>
                     </ul>
                 </li>
 
-                <%# 🚨 ELIMINADO: Se quitó el antiguo enlace "Crear Artículo" 🚨 %>
+                <% if logged_in %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Perfil [<%= current_user.username %>]
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%# Sub-enlace 1: Listado de Artículos %>
+                        <li><%= link_to "Ver Perfil", user_path(current_user), class: "dropdown-item" %></li>
+
+                        <%# Separador (Opcional) %>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <%# Sub-enlace 2: Crear Artículo %>
+                        <li><%= link_to "Editar Perfil", edit_user_path(current_user), class: "dropdown-item" %></li>
+                    </ul>
+                </li>
+                <%end%>
 
                 <li class="nav-item">
                     <%= link_to "Acerca de", about_path, class: "nav-link" %>
                 </li>
 
-            <% if logged_in %>
+                <% if logged_in %>
                 <li class="nav-item">
                     <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "Cerrar Sesion", logout_path, class: "nav-link", data: { turbo_method: :delete, turbo_confirm: "Seguro que quieres cerrar sesión?" }%>
                 </li>
-            <%else%>
+                <%else%>
                 <li class="nav-item">
-                     <%= link_to "Iniciar sesion ", login_path, class: "nav-link" %>
+                    <%= link_to "Iniciar sesion ", login_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                     <%= link_to "Registrarse", signup_path, class: "nav-link" %>
+                    <%= link_to "Registrarse", signup_path, class: "nav-link" %>
                 </li>
-            <%end%>
+                <%end%>
             </ul>
 
-            
+
 
             <%# Formulario de búsqueda %>
             <form class="d-flex" role="search">
