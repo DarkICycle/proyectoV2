@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -14,12 +14,12 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       flash[:notice] = "Artículo creado correctamente"
       redirect_to @article
     else
-      render 'new', status: :unprocessable_entity
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
       flash[:noticed] = "Article was update successfully."
       redirect_to @article
     else
-      render 'edit'
+      render "edit"
     end
   end
 
