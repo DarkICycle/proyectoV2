@@ -40,15 +40,24 @@
                     <%= link_to "Acerca de", about_path, class: "nav-link" %>
                 </li>
 
+            <% if logged_in %>
                 <li class="nav-item">
-                    <%= link_to "Iniciar sesion ", login_path, class: "nav-link" %>
+                    <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
                 </li>
-
                 <li class="nav-item">
                     <%= link_to "Cerrar Sesion", logout_path, class: "nav-link", data: { turbo_method: :delete, turbo_confirm: "Seguro que quieres cerrar sesión?" }%>
                 </li>
-
+            <%else%>
+                <li class="nav-item">
+                     <%= link_to "Iniciar sesion ", login_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                     <%= link_to "Registrarse", signup_path, class: "nav-link" %>
+                </li>
+            <%end%>
             </ul>
+
+            
 
             <%# Formulario de búsqueda %>
             <form class="d-flex" role="search">
