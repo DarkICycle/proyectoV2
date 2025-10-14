@@ -9,7 +9,9 @@
 
                     <%# QUITAMOS bg-transparent para que el CSS (wheat) se aplique %>
                     <div class="card-header fst-italic">
-                        Por <%= article.user.username if article.user %>
+                    <%if article.user%>
+                        Por <%= link_to article.user.username, user_path(article.user) %>
+                    <%end%>
                     </div>
 
                     <div class="card-body">
