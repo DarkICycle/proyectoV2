@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def require_user
+    if !logged_in
+      flash[:alert] = "Debes iniciar sesion para ejecutar esta accion"
+      redirect_to login_path
+    end
+  end
   allow_browser versions: :modern
 end
