@@ -39,10 +39,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if @user == current_user && current_user.admin?
+      flash[:alert] = "Los administradores no pueden eliminarse a sí mismos."
+      redirect_to @user and return
+    end
     @user.destroy
-    session[:user_id] = nil
-    flash[:notice] = "La cuenta y sus articulos asociados han sido eliminados satisfactoriamente"
-    redirect_to articles_path
+    if @user == current_user
+      session[:user_id] = nil
+      flash[:notice] = "La cuenta ha sido eliminada satisfactoriamente. ¡Hasta pronto!"
+      redirect_to articles_path
+    else
+      flash[:notice] = "La cuenta de #{@user.username} y sus artículos asociados han sido eliminados satisfactoriamente"
+      redirect_to users_path
+    end
   end
 
   private
@@ -55,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
+    if current_user != @user && !current_user.admin?
       flash[:alert] = "Solo puede editar su propia cuenta"
       redirect_to @user
     end
